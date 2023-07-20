@@ -28,7 +28,7 @@ def decode(password):
         elif password[x] == "2":
             decoded += "9"
         else:
-            char = str(int(password[x]) + 3)
+            char = str(int(password[x]) - 3)
             decoded += char
     return decoded
 
@@ -36,9 +36,8 @@ def decode(password):
 
 def main():
     global encoded_password
-    initial_password = ""
+    initial_password = ""  # initializes an empty sting for the initial password
     while True:
-        initial_password = ""  # initializes an empty string for the user inputted password
         print("Menu")
         print("-------------")
         print("1. Encode")
@@ -49,7 +48,7 @@ def main():
 
         if menu_option == 1:
             print("Please enter your password to encode: ", end="")
-            initial_password += input()
+            initial_password = input()
             encoded_password = encode(initial_password)  # encodes the user inputted password
             print("Your password has been encoded and stored!")
 
